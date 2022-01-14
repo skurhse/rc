@@ -1,2 +1,2 @@
 # rc
-print rune counts for each file.  ᛊᚲᚱ
+print newline, word, byte and rune counts for each file.
