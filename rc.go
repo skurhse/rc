@@ -7,8 +7,8 @@ import (
 	"os"
 	"strconv"
 	"unicode/utf8"
-
 	"github.com/pkg/errors"
+    "golang.org/x/crypto/ssh/terminal"
 )
 
 const (
@@ -48,16 +48,8 @@ func main() {
 }
 
 func validateInputs(args []string, stdin *os.File) (useType int, status int, error error) {
-
-	stat, error := stdin.Stat()
-	if error != nil {
-		status = 1
-		return
-	}
-
 	hasArgs := len(args) > 0
-
-	hasStream := stat.Size() > 0
+	hasStream := !terminal.IsTerminal(int(os.Stdin.Fd()))
 
 	if hasArgs {
 		if hasStream {
