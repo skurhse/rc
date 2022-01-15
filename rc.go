@@ -31,7 +31,6 @@ func main() {
 		return
 	}
 
-	// TODO: Add file path functionality with flag package <dru 2020-04-25>
 	var runeCount int
 	switch useType {
 	case Args:
@@ -98,7 +97,6 @@ func countFile(file *os.File) (count int, status int, error error) {
 				break
 			} else {
 				status = 1
-				// TODO: Wrap error <dru 2020-04-25>
 				return
 			}
 		}
