@@ -1,10 +1,3 @@
-/*
-print rune counts for each file.
-
-Usage
-  runecount <args>
-  runecount < <stdin>
-*/
 package main
 
 import (
