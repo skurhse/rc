@@ -3,12 +3,14 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/jpillora/opts"
+	"github.com/pkg/errors"
+	"golang.org/x/crypto/ssh/terminal"
 	"io"
+	"log"
 	"os"
 	"strconv"
 	"unicode/utf8"
-	"github.com/pkg/errors"
-    "golang.org/x/crypto/ssh/terminal"
 )
 
 const (
@@ -17,6 +19,14 @@ const (
 )
 
 func main() {
+	type config struct {
+		Bytes string `opts:"help=print the byte counts"`
+	    Runes string `opts:"help=print the rune counts"`
+		Words string `opts:"help=print the word counts"`
+	}
+	c := config{}
+	opts.Parse(&c)
+	log.Printf("%+v", c)
 
 	var error error
 	var status int
